@@ -14,6 +14,8 @@ app.get("/promise", filterMidWare, promise);
 app.get("/json", filterMidWare, (req, res) => {
   let j = new Promise((resolve, reject) => {
     readFile("./data.json", "utf8", (req, res) => {});
+
+    // Trail one code d
   });
 });
 app.post("/emoji", filterMidWare, countMiddleWare, sortMidWare, controller);
