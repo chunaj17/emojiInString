@@ -1,5 +1,3 @@
-const sortObject = require("./sortMidWare");
-
 const countMiddleWare = (req, res, next) => {
   let data = req.body;
   req.counter = count(data.value);
@@ -8,6 +6,7 @@ const countMiddleWare = (req, res, next) => {
   //   req.char2 = arr[arr.length - 2].key;
   //   req.char3 = arr[arr.length - 3].key;
   //   req.char4 = arr[arr.length - 4].key;
+  console.log(count(data.value));
   next();
   //console.log(counter);
 };
