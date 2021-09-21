@@ -1,7 +1,5 @@
 const getRegEx = require("./regexMidware");
 const emoji = require("node-emoji");
-const count = require("./countMiddleWare");
-const sortObject = require("./sortMidWare");
 const alterController = (req, res) => {
   let data = req.body;
   //   last1 = arr[arr.length - 1].key.replace(
