@@ -23,20 +23,19 @@ app.post("/", filterReq, (req, res) => {
       res.send("erro occured while reading json", err);
     } else {
       let data = JSON.parse(jsonObj);
-      // console.log(Object.keys(data)[0]);
       for (let i = 0; i < Object.keys(data).length; i++) {
         if (Object.keys(data)[i] === Object.keys(userJson)[0]) {
           return res.send(" The data is already available");
         } else {
-          let obj = Object.entries(data).concat(Object.entries(userJson));
-          console.log(data);
-          return res.send("data not available");
+          let readData = { ...data, ...userJson };
+          fs.writeFileSync(
+            "./customer.json",
+            JSON.stringify(readData, null, 4)
+          );
+
+          res.send();
         }
       }
-      // if (Object.keys(data) === Object.keys(userJson)) {
-      // } else {
-      //   let newobj = Object.assign(data);
-      // }
     }
   });
 });
