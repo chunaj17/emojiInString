@@ -20,7 +20,7 @@ app.post("/", filterReq, (req, res) => {
   let userJson = req.body;
   fs.readFile("./customer.json", "utf8", (err, jsonObj) => {
     if (err) {
-      res.send("erro occured while reading json", err);
+      res.send("error occured while reading json", err);
     } else {
       let data = JSON.parse(jsonObj);
       for (let i = 0; i < Object.keys(data).length; i++) {
@@ -28,12 +28,9 @@ app.post("/", filterReq, (req, res) => {
           return res.send(" The data is already available");
         } else {
           let readData = { ...data, ...userJson };
-          fs.writeFileSync(
-            "./customer.json",
-            JSON.stringify(readData, null, 4)
-          );
-
-          res.send();
+          let stringify = JSON.stringify(readData, null, 2);
+          fs.writeFileSync("./customer.json", stringify);
+          res.send("data updated success fully");
         }
       }
     }

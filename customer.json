@@ -1,1 +1,26 @@
-{"helen":{"userName":"helen","address":{"city ":"","country":""},"name":"helen","job":83},"request":{"_UNIQUE_ID":{"ID":"UNIQUE_ID","characters":["a","z","d","p"]}},"sam":{"address":"","data":""}}
+{
+  "helen": {
+    "userName": "helen",
+    "address": {
+      "city ": "",
+      "country": ""
+    },
+    "name": "helen",
+    "job": 83
+  },
+  "request": {
+    "_UNIQUE_ID": {
+      "ID": "UNIQUE_ID",
+      "characters": [
+        "a",
+        "z",
+        "d",
+        "p"
+      ]
+    }
+  },
+  "sam": {
+    "address": "",
+    "data": ""
+  }
+}
