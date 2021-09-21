@@ -5,8 +5,10 @@ const countMiddleWare = require("./countMiddleWare");
 const controller = require("./controller");
 const sortMidWare = require("./sortMidWare");
 const filterReq = require("./filterReq");
+const responseTime = require("response-time");
 const app = express();
 app.use(express.json());
+app.use(responseTime());
 //app.use([filter,reg,counter,sorter])
 app.use(express.urlencoded({ extended: false }));
 
@@ -18,6 +20,9 @@ app.post("/emoji", filterMidWare, countMiddleWare, sortMidWare, controller);
 // function three :replaces the top four to emoji ->
 app.post("/", filterReq, (req, res) => {
   let userJson = req.body;
+  let id = userJson.id;
+  let characters = userJson.characters;
+
   fs.readFile("./customer.json", "utf8", (err, jsonObj) => {
     if (err) {
       res.send("error occured while reading json", err);
@@ -30,11 +35,19 @@ app.post("/", filterReq, (req, res) => {
           let readData = { ...data, ...userJson };
           let stringify = JSON.stringify(readData, null, 2);
           fs.writeFileSync("./customer.json", stringify);
-          res.send("data updated success fully");
         }
       }
+      res.status(200).send("data updated successfully");
     }
   });
+  let newAdded = fs.readFile("./customer.json", "utf8", (err, jsonString) => {
+    if (err) {
+      console.log(err);
+    } else {
+      console.log(jsonString);
+    }
+  });
+  console.log(newAdded);
 });
 app.listen(6000, () => {
   console.log("server is listening on port 6000....");

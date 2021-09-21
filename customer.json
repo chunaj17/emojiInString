@@ -20,7 +20,11 @@
     }
   },
   "sam": {
-    "address": "",
+    "name": "",
+    "data": ""
+  },
+  "sa": {
+    "name": "",
     "data": ""
   }
 }
