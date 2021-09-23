@@ -1,34 +1,27 @@
 {
-  "helen": {
-    "userName": "helen",
-    "address": {
-      "city ": "",
-      "country": ""
-    },
-    "name": "helen",
-    "job": 83
-  },
-  "request": {
-    "_UNIQUE_ID": {
-      "ID": "UNIQUE_ID",
-      "characters": [
-        "a",
-        "z",
-        "d",
-        "p"
-      ]
+  "saasdfgg": {
+    "id": "saasdfgg",
+    "characters": {
+      "0": "V",
+      "1": "M",
+      "2": "L",
+      "3": "G"
     }
   },
-  "sam": {
-    "name": "",
-    "data": ""
-  },
-  "saasdfm": {
-    "id": "saasdfm",
-    "characters": "tehq uickjasdjfoasdf"
-  },
-  "saasdff": {
-    "id": "saasdff",
-    "characters": "%A%%B%%C%%h%"
+  "sami": {
+    "id": "sami",
+    "characters": {
+      "0": "p",
+      "1": "r",
+      "2": "o",
+      "3": "g",
+      "4": "r",
+      "5": "a",
+      "6": "m",
+      "7": "m",
+      "8": "i",
+      "9": "n",
+      "10": "g"
+    }
   }
-  }
+}
