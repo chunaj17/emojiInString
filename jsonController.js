@@ -12,7 +12,6 @@ const jsonController = (req, res) => {
         let data = JSON.parse(jsonObj);
         if (data.hasOwnProperty(id)) {
           let end = Date.now();
-          console.log(toJson);
           return res.send(
             " The data is already available" +
               ` <br/> <h1>ur request took about ${
@@ -23,7 +22,7 @@ const jsonController = (req, res) => {
           let toJson = {};
           let userData = characters.match(/[a-z]/gi);
           for (let i = 0; i < userData.length; i++) {
-            toJson[`${i}`] = userData[i];
+            toJson[`${userData[i]}`] = userData[i];
           }
           let newdata = {
             [`${id}`]: {

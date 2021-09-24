@@ -1,5 +1,6 @@
 const express = require("express");
 const dummyText = require("./dummyText");
+const timeController = require("./timeController");
 const filterMidWare = require("./filterMidWare");
 const countMiddleWare = require("./countMiddleWare");
 const controller = require("./controller");
@@ -7,6 +8,7 @@ const sortMidWare = require("./sortMidWare");
 const filterReq = require("./filterReq");
 const jsonController = require("./jsonController");
 const responseTime = require("response-time");
+const { j } = require("./emoji");
 const app = express();
 app.use(express.json());
 app.use(responseTime());
@@ -18,7 +20,8 @@ app.post("/emoji", filterMidWare, countMiddleWare, sortMidWare, controller);
 // if the hash map doesnt contain the character set the character and set the value to one
 // function three :replaces the top four to emoji ->
 app.post("/", filterReq, jsonController);
-app.get("/text", filterReq, dummyText);
+app.post("/text", filterReq, dummyText);
+app.get("/time", filterReq, timeController);
 app.listen(6000, () => {
   console.log("server is listening on port 6000....");
 });

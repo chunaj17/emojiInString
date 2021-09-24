@@ -1,6 +1,7 @@
 const count = require("./countMiddleWare");
 const sortObject = require("./sortMidWare");
 const emoji = require("node-emoji");
+const unwanted = require("./utils");
 const filterMidWare = (req, res, next) => {
   let data = req.body;
   if (unwanted(data.value)) {
@@ -11,8 +12,5 @@ const filterMidWare = (req, res, next) => {
     );
   }
 };
-function unwanted(checks) {
-  let reg = /(^[a-z ]+$)/i;
-  return reg.test(checks);
-}
+
 module.exports = filterMidWare;
