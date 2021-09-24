@@ -19,7 +19,7 @@ app.post("/emoji", filterMidWare, countMiddleWare, sortMidWare, controller);
 // if the hash map doesnt contain the character set the character and set the value to one
 // function three :replaces the top four to emoji ->
 app.post("/", filterReq, jsonController);
-app.post("/text", filterReq, dummyText);
+app.post("/text", filterReq, dummyText, writeDummy);
 app.listen(6000, () => {
   console.log("server is listening on port 6000....");
 });
