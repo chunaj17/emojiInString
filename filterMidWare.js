@@ -1,6 +1,3 @@
-const count = require("./countMiddleWare");
-const sortObject = require("./sortMidWare");
-const emoji = require("node-emoji");
 const unwanted = require("./utils");
 const filterMidWare = (req, res, next) => {
   let data = req.body;

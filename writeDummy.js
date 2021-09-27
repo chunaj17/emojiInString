@@ -1,10 +1,10 @@
 const { writeFile } = require("fs");
 const writeDummy = (req, res, next) => {
   const { id, request } = req.body;
-  let time = Date.now();
+  let time = new Date();
   let result = req.text;
   let dataToBeSaved = {
-    [`${time}`]: {
+    [`${time.getTime()}`]: {
       id: time,
       result: result,
       request: request,
