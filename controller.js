@@ -1,4 +1,4 @@
-const getRegEx = require("./regexMidware");
+const getRegEx = require("./regex");
 const emoji = require("node-emoji");
 const alterController = (req, res) => {
   let data = req.body;

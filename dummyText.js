@@ -1,8 +1,10 @@
-const { readFile, writeFile } = require("fs");
+const { readFile } = require("fs");
 const emoji = require("node-emoji");
 const emojiList = require("./emoji");
-const getRegEx = require("./regexMidware");
+const getRegEx = require("./regex");
 function dummyText(req, res, next) {
+  let time = new Date();
+  req.start = time.getMilliseconds();
   let { id, request } = req.body;
   readFile("./customer.json", "utf8", (err, jsonData) => {
     if (err) {
@@ -19,7 +21,6 @@ function dummyText(req, res, next) {
           );
         });
         console.log(req.text);
-        res.status(201).send({ result: req.text });
         next();
       } else {
         res.send("id not found");

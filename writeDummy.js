@@ -4,7 +4,7 @@ const writeDummy = (req, res, next) => {
   let time = new Date();
   let result = req.text;
   let dataToBeSaved = {
-    [`${time.getTime()}`]: {
+    [`${time}`]: {
       id: time,
       result: result,
       request: request,
@@ -25,10 +25,10 @@ const writeDummy = (req, res, next) => {
   };
   let newData = {
     ...req.data,
-    ...newUserData,
+    [`${userData["id"]}`]: { ...newUserData },
   };
   let newRequest = JSON.stringify(newData, null, 2);
-
+  res.status(200).send(result);
   writeFile("./customer.json", newRequest, (err) => {
     if (err) {
       console.log(err);

@@ -3,7 +3,7 @@ const filterReq = (req, res, next) => {
   let data = req.body;
   //   console.log(Object.keys(data));
   if (isEmpty(Object.keys(data))) {
-    /*|| isEmpty(data.name)*/ res.send("Empty Object or check ur entry");
+    res.send("Empty Object or check ur entry");
   } else {
     next();
   }
