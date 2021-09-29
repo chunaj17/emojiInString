@@ -1,8 +1,8 @@
 const { readFile } = require("fs");
-const paramJson = (req, res, next) => {
-  const time = new Date();
-  const start = time.getMilliseconds();
-  const { id, characters } = req.params;
+const charactersParam = (req, res) => {
+  let { id, value } = req.params;
+  let time = new Date();
+  let start = time.getMilliseconds();
   readFile("./customer.json", "utf8", (err, data) => {
     if (err) {
       console.log(err);
@@ -11,14 +11,13 @@ const paramJson = (req, res, next) => {
       if (jsonData.hasOwnProperty(id)) {
         let end = time.getMilliseconds();
         let elapsed = end - start;
-        jsonData[id].time = `Time it took to response ${elapsed}`;
-        jsonData[id].Date = `Request Date ${time}`;
-        jsonData[id].characters = characters;
-        res.send(jsonData[id]);
+        jsonData[id][value].time = `Time it took to response ${elapsed}`;
+        jsonData[id][value].Date = `Request Date ${time}`;
+        res.send(jsonData[id][value]);
       } else {
         let end = time.getMilliseconds();
         res.send(
-          `id not found!!! and  response took about :- ${
+          `char or id  not found!!! and  response took about :- ${
             end - start
           } Milliseconds`
         );
@@ -26,4 +25,4 @@ const paramJson = (req, res, next) => {
     }
   });
 };
-module.exports = paramJson;
+module.exports = charactersParam;

@@ -8,13 +8,17 @@ const sortMidWare = require("./sortMidWare");
 const filterReq = require("./filterReq");
 const jsonController = require("./jsonController");
 const paramJson = require("./paramJson");
+const idParam = require("./idParam");
+const charReqParam = require("./charReqParam");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
 app.post("/emoji", filterMidWare, countMiddleWare, sortMidWare, controller);
 app.post("/write", filterReq, jsonController);
 app.post("/dummyText", filterReq, dummyText, writeDummy);
-app.get("/api/:id", paramJson);
+app.get("/api/:id/requests/:characters", paramJson);
+app.get("/api/:id", idParam);
+app.get("/api/:id/:value", charReqParam);
 app.listen(6000, () => {
   console.log("server is listening on port 6000....");
 });

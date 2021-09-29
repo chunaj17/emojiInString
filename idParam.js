@@ -1,8 +1,8 @@
 const { readFile } = require("fs");
-const paramJson = (req, res, next) => {
-  const time = new Date();
-  const start = time.getMilliseconds();
-  const { id, characters } = req.params;
+const idParam = (req, res) => {
+  let { id } = req.params;
+  let time = new Date();
+  let start = time.getMilliseconds();
   readFile("./customer.json", "utf8", (err, data) => {
     if (err) {
       console.log(err);
@@ -13,7 +13,6 @@ const paramJson = (req, res, next) => {
         let elapsed = end - start;
         jsonData[id].time = `Time it took to response ${elapsed}`;
         jsonData[id].Date = `Request Date ${time}`;
-        jsonData[id].characters = characters;
         res.send(jsonData[id]);
       } else {
         let end = time.getMilliseconds();
@@ -26,4 +25,4 @@ const paramJson = (req, res, next) => {
     }
   });
 };
-module.exports = paramJson;
+module.exports = idParam;
