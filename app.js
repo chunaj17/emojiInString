@@ -25,12 +25,12 @@ app.post(
 /*this route accepts id and string from req body 
 and change the strings into iterating characters 
 and stores them into json file */
-app.post("/api/v1/write", filterReq, jsonController);
+app.post("/api/v2/write", filterReq, jsonController);
 /*this one below accepts id and request from req body 
 n validates if the id exists in the json store 
 n if the condition is true it changes all characters into emoji 
 and store them into the josn under the id as request*/
-app.post("/api/v1/dummyText", filterReq, dummyText, writeDummy);
+app.post("/api/v2/dummyText", filterReq, dummyText, writeDummy);
 /*this one below takes two params the id and characters 
 first it validates the id and 
 changes the characters with the params string 
@@ -43,6 +43,6 @@ app.get("/api/v1/getOnly/:id", idParam);
 app.get("/api/v1/getOnly/:id/:value", charReqParam);
 //returns characters with there crossponding emojis symbols
 app.get("/api/v1/emojiList", getEmoji);
-app.listen(6000, () => {
-  console.log("server is listening on port 6000....");
+app.listen(4000, () => {
+  console.log("server is listening on port 4000....");
 });
