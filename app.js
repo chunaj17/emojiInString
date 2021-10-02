@@ -11,6 +11,7 @@ const paramJson = require("./paramJson");
 const idParam = require("./idParam");
 const charReqParam = require("./charReqParam");
 const getEmoji = require("./getEmoji");
+const filterReqForDummyText = require("./filterReqForDummyText");
 const app = express();
 app.use(express.json());
 app.use(express.urlencoded({ extended: false }));
@@ -30,7 +31,7 @@ app.post("/api/v2/write", filterReq, jsonController);
 n validates if the id exists in the json store 
 n if the condition is true it changes all characters into emoji 
 and store them into the josn under the id as request*/
-app.post("/api/v2/dummyText", filterReq, dummyText, writeDummy);
+app.post("/api/v2/dummyText", filterReqForDummyText, dummyText, writeDummy);
 /*this one below takes two params the id and characters 
 first it validates the id and 
 changes the characters with the params string 
