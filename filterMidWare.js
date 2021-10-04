@@ -4,9 +4,10 @@ const filterMidWare = (req, res, next) => {
   if (unwanted(data.value)) {
     next();
   } else {
-    res.send(
-      "<h1>Invalid entry</h1> <h2> Ur string contains a unwanted symbol or number or  just no entry</h2> "
-    );
+    res.status(404).json({
+      msg: "Ur string contains a unwanted symbol or number or  just no entry",
+      data: "something like this string",
+    });
   }
 };
 
