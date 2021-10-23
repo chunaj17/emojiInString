@@ -28,12 +28,14 @@ const writeDummy = (req, res, next) => {
     [`${userData["id"]}`]: { ...newUserData },
   };
   let newRequest = JSON.stringify(newData, null, 2);
-  res.status(200).send(result);
-  writeFile("./customer.json", newRequest, (err) => {
+  writeFile("../customer.json", newRequest, (err) => {
     if (err) {
       console.log(err);
     } else {
-      console.log("data successfully written to the json file");
+      res.status(200).json({
+        msg: `data successfully written to the json file`,
+        data: result
+      })
     }
   });
 };
