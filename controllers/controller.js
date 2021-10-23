@@ -1,4 +1,3 @@
-const getRegEx = require("./regex");
 const emoji = require("node-emoji");
 const alterController = (req, res) => {
   let data = req.body;
@@ -10,5 +9,8 @@ const alterController = (req, res) => {
     .replace(getRegEx(req.char4), emoji.get("joy"));
   res.send(`${emojiReplacedText}`);
 };
-
-module.exports = alterController;
+function getRegEx(item) {
+  let pattern = new RegExp(item, "g");
+  return pattern;
+}
+module.exports = { alterController, getRegEx };
